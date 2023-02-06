@@ -13,17 +13,17 @@ namespace YandexUploadService
             var logger = NLog.Web.NLogBuilder.ConfigureNLog("NLog.config").GetCurrentClassLogger();
             try
             {
-              //  logger.Trace("****** Start application ******");
+                logger.Trace("****** Start application ******");
                 CreateWebHostBuilder(args).Build().Run();
             }
             catch (Exception ex)
             {
-                //logger.Error(ex, "Stopped program because of exception");
+                logger.Error(ex, "Stopped program because of exception");
                 throw;
             }
             finally
             {
-                //logger.Trace("****** Shutdown application ******");
+                logger.Trace("****** Shutdown application ******");
                 NLog.LogManager.Shutdown();
             }
         }
@@ -35,7 +35,7 @@ namespace YandexUploadService
            {
                // logging.ClearProviders();
                logging.SetMinimumLevel(LogLevel.Trace);
-           });
-           //.UseNLog();
+           })
+           .UseNLog();
     }
 }

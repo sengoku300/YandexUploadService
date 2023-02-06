@@ -64,10 +64,7 @@ namespace YandexUploadService
 
                 services.AddDbContext<ApplicationDbContext>(options => {
                     options.EnableSensitiveDataLogging();
-                //    options.UseNpgsql(Configuration.GetConnectionString("RemoteDatabase"));
-                }
-                // options.UseInMemoryDatabase("TestDB")
-                );
+                });
 
             }
 
@@ -96,10 +93,6 @@ namespace YandexUploadService
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "YandexUploadService API V2");
-
-                //var assembly = GetType().GetTypeInfo().Assembly;
-                //var ns = assembly.GetName().Name;
-                //c.IndexStream = () => assembly.GetManifestResourceStream($"{ns}.index.html");
             });
 
             app.UseEndpoints(endpoints =>
